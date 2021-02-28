@@ -1,0 +1,98 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 4937bbd7ae3e26d5b3ca37e5b2537720ec49e7711e0156129953d308e00d5983
+
+name:           mac-assistant
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/tiagofmcosta/mac-assistant#readme>
+homepage:       https://github.com/tiagofmcosta/mac-assistant#readme
+bug-reports:    https://github.com/tiagofmcosta/mac-assistant/issues
+author:         Tiago Costa
+maintainer:     costa.tiago@gmail.com
+copyright:      2021 Tiago Costa
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/tiagofmcosta/mac-assistant
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_mac_assistant
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , http-client
+    , lens
+    , simple-logger
+    , string-interpolate
+    , text
+    , time
+    , turtle
+    , uri-encode
+    , wreq
+  default-language: Haskell2010
+
+executable mac-assistant
+  main-is: Main.hs
+  other-modules:
+      Paths_mac_assistant
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , http-client
+    , lens
+    , mac-assistant
+    , simple-logger
+    , string-interpolate
+    , text
+    , time
+    , turtle
+    , uri-encode
+    , wreq
+  default-language: Haskell2010
+
+test-suite mac-assistant-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_mac_assistant
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , http-client
+    , lens
+    , mac-assistant
+    , simple-logger
+    , string-interpolate
+    , text
+    , time
+    , turtle
+    , uri-encode
+    , wreq
+  default-language: Haskell2010
