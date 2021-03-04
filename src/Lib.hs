@@ -109,7 +109,6 @@ waitForUserInput printMenu = do
 
 entry :: IO ()
 entry = withGlobalLogging (LogConfig Nothing True) $ do
-
   witAiToken <- readFile "WIT_AI.token"
 
   let opts =
