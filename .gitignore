@@ -270,3 +270,4 @@ $RECYCLE.BIN/
 .stack-work/
 *~
 *.mp3
+*.token

@@ -12,7 +12,7 @@ import Control.Lens
 import Control.Logger.Simple
 import Control.Monad
 import Data.Aeson
-import qualified Data.ByteString as B
+import qualified Data.ByteString.Char8 as C8
 import Data.Char (toLower)
 import qualified Data.Map as M (Map, fromList, lookup)
 import Data.Maybe (fromMaybe, isNothing)
@@ -107,14 +107,14 @@ waitForUserInput printMenu = do
 
 -- ENTRY
 
-witAiToken :: B.ByteString
-witAiToken = "4GTUGTL2A2DEQVHX7Q4DGZW7KRTLUOMS"
-
 entry :: IO ()
 entry = withGlobalLogging (LogConfig Nothing True) $ do
+
+  witAiToken <- readFile "WIT_AI.token"
+
   let opts =
         defaults
-          & auth ?~ oauth2Bearer witAiToken
+          & auth ?~ oauth2Bearer (C8.pack witAiToken)
 
   putStrLn "Please speak your command..."
 
